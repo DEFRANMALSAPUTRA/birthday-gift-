@@ -1,0 +1,573 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    padding: 20px;
+}
+
+.birthday-card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    max-width: 600px;
+}
+
+.title {
+    font-family: 'Pacifico', cursive;
+    color: #ff4b6e;
+    margin-bottom: 20px;
+    font-size: 2.8em;
+    letter-spacing: 1px;
+}
+
+.name {
+    font-family: 'Pacifico', cursive;
+    color: #ff758c;
+    margin-bottom: 30px;
+    font-size: 2.2em;
+}
+
+.message {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.message p {
+    margin: 10px 0;
+}
+
+.gift-btn {
+    background: #ff4b6e;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.gift-btn:hover {
+    transform: scale(1.1);
+}
+
+.gift-message {
+    font-family: 'Pacifico', cursive;
+    margin-top: 30px;
+    color: #ff4b6e;
+    font-size: 1.4em;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Animasi Balon */
+.balloons {
+    position: absolute;
+    top: -50px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.balloon {
+    width: 40px;
+    height: 50px;
+    background: #ff4b6e;
+    border-radius: 50%;
+    animation: float 4s ease-in-out infinite;
+}
+
+.balloon:nth-child(2) { background: #ff758c; animation-delay: 0.5s; }
+.balloon:nth-child(3) { background: #ff8fa3; animation-delay: 1s; }
+.balloon:nth-child(4) { background: #ffa4b9; animation-delay: 1.5s; }
+.balloon:nth-child(5) { background: #ffb9cf; animation-delay: 2s; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Animasi Hati */
+.heart-container {
+    margin: 20px 0;
+}
+
+.heart {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+.heart:before,
+.heart:after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 40px;
+    background: #ff4b6e;
+    border-radius: 25px 25px 0 0;
+}
+
+.heart:before {
+    left: 25px;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+
+.heart:after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+@media (max-width: 600px) {
+    .birthday-card {
+        padding: 20px;
+    }
+
+    .title {
+        font-size: 1.8em;
+    }
+
+    .name {
+        font-size: 1.5em;
+    }
+}
+
+/* Galeri Foto */
+.photo-gallery {
+    margin: 30px 0;
+}
+
+.photos {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.photos img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.photos img:hover {
+    transform: scale(1.1);
+}
+
+/* Modal Foto */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+.modal img {
+    max-width: 90%;
+    max-height: 90vh;
+    border-radius: 10px;
+    pointer-events: none;
+}
+
+/* Mini Game */
+.mini-game {
+    margin: 30px 0;
+    padding: 20px;
+    background: rgba(255, 192, 203, 0.2);
+    border-radius: 15px;
+}
+
+#game-container {
+    width: 100%;
+    max-width: 500px;
+    min-height: 300px;
+    border: 3px solid #ff4b6e;
+    margin: 20px auto;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #ffe6e6, #fff);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255, 75, 110, 0.2);
+    padding: 20px;
+}
+
+.quiz-container {
+    text-align: center;
+}
+
+.question-number {
+    color: #ff758c;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+.question {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    color: #ff4b6e;
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+}
+
+.options {
+    display: grid;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.option-btn {
+    background: white;
+    border: 2px solid #ff758c;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #ff4b6e;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+
+.option-btn:hover {
+    background: #fff0f3;
+    transform: translateY(-2px);
+}
+
+.option-btn.correct {
+    background: #a8e6cf;
+    border-color: #69c69d;
+    color: #2d6a4f;
+}
+
+.option-btn.wrong {
+    background: #ffb7b7;
+    border-color: #ff8989;
+    color: #912d2d;
+}
+
+.quiz-effect {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ff4b6e;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    animation: popEffect 1.5s ease-out forwards;
+    z-index: 100;
+}
+
+.quiz-end {
+    text-align: center;
+    padding: 20px;
+}
+
+.quiz-end h3 {
+    color: #ff4b6e;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.love-message {
+    font-family: 'Pacifico', cursive;
+    color: #ff758c;
+    font-size: 1.3em;
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes popEffect {
+    0% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 0;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0;
+    }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+}
+
+/* Style untuk Game Button */
+.game-btn {
+    background: linear-gradient(45deg, #ff4b6e, #ff758c);
+    color: white;
+    border: none;
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 75, 110, 0.3);
+    position: relative;
+    overflow: hidden;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.game-btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.game-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(255, 75, 110, 0.4);
+    background: linear-gradient(45deg, #ff758c, #ff8fa3);
+}
+
+.game-btn:hover:before {
+    left: 100%;
+}
+
+.game-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 3px 10px rgba(255, 75, 110, 0.3);
+}
+
+.game-btn:disabled {
+    background: linear-gradient(45deg, #cccccc, #dddddd);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+    opacity: 0.7;
+}
+
+.game-btn:disabled:before {
+    display: none;
+}
+
+/* Tambahkan animasi untuk button */
+@keyframes pulse-border {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 75, 110, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 75, 110, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 75, 110, 0);
+    }
+}
+
+.game-btn:not(:disabled) {
+    animation: pulse-border 2s infinite;
+}
+
+.photo-gallery h3 {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.8em;
+    color: #ff4b6e;
+    margin-bottom: 20px;
+}
+
+.mini-game h3 {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.8em;
+    color: #ff4b6e;
+    margin-bottom: 15px;
+}
+
+/* Tambahkan di bagian atas file CSS */
+.envelope-wrapper {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+    z-index: 9999;
+}
+
+.envelope {
+    width: 300px;
+    height: 200px;
+    background-color: #ff4b6e;
+    position: relative;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.envelope:hover {
+    transform: scale(1.05);
+}
+
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ff758c;
+    clip-path: polygon(0 0, 50% 50%, 100% 0);
+    transform-origin: top;
+    transition: transform 0.5s ease;
+    z-index: 2;
+}
+
+.envelope.open .envelope-flap {
+    transform: rotateX(180deg);
+}
+
+.envelope-content {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateZ(1px);
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.letter {
+    font-family: 'Pacifico', cursive;
+    color: #ff4b6e;
+    font-size: 1.2em;
+    text-align: center;
+    padding: 20px;
+    line-height: 1.8;
+    opacity: 0;
+    animation: fadeIn 1s forwards 0.5s;
+}
+
+.fade-out {
+    animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Tambahkan di bagian modal styles */
+.video-container {
+    width: 90%;
+    max-width: 800px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    position: relative;
+}
+
+.video-container video {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+#video-modal {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+#video-modal.hidden {
+    display: none;
+} 

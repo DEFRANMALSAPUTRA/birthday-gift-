@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Ulang Tahun Sayang ❤️</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="envelope-wrapper" id="envelope-container">
+        <div class="envelope" onclick="openEnvelope()">
+            <div class="envelope-flap"></div>
+            <div class="envelope-content">
+                <div class="letter">
+                    <p>For Aurella ❤️</p>
+                    <p>Klik untuk membuka kartu</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="birthday-card">
+            <div class="balloons">
+                <div class="balloon"></div>
+                <div class="balloon"></div>
+                <div class="balloon"></div>
+                <div class="balloon"></div>
+                <div class="balloon"></div>
+            </div>
+            
+            <h1 class="title">Happy Sweet Seventeen</h1>
+            <h2 class="name">❤️ Aurella Tandungan ❤️</h2>
+            
+            <div class="message">
+                <p>Di hari spesialmu ini,</p>
+                <p>Aku ingin mengucapkan selamat ulang tahun yang ke-17!</p>
+                <p>Semoga semua impian dan harapanmu tercapai.</p>
+                <p>Terima kasih telah menjadi bagian terindah dalam hidupku.</p>
+            </div>
+
+            <div class="heart-container">
+                <div class="heart"></div>
+            </div>
+
+            <button class="gift-btn" onclick="showGift()">Buka Hadiah Spesialmu!</button>
+            
+            <div id="gift" class="gift-message hidden">
+                <p>🎁 I love you Ouwrell! 🎁</p>
+                <p>semoga kita bisa bersama terus yaa</p>
+            </div>
+
+            <div class="photo-gallery">
+                <h3>Foto si Ouwrell</h3>
+                <div class="photos">
+                    <img src="aurel gitar.jpg" alt="Kenangan 1" onclick="enlargePhoto(this)">
+                    <img src="WhatsApp Image 2025-03-06 at 11.41.17_fcc51c00.jpg" alt="Kenangan 2" onclick="enlargePhoto(this)">
+                    <img src="1.jpg" alt="Kenangan 3" onclick="enlargePhoto(this)">
+                </div>
+            </div>
+
+            <div class="mini-game">
+                <h3>Quiz</h3>
+                <div id="game-container">
+                    <div id="player">❤️</div>
+                    <div id="score">Skor: 0</div>
+                </div>
+                <button onclick="startGame()" class="game-btn">Mainkan Game</button>
+            </div>
+        </div>
+    </div>
+    <div id="photo-modal" class="modal hidden" onclick="closeModal()">
+        <img id="enlarged-photo" src="Screenshot 2025-02-25 202723.png" alt="Enlarged photo">
+    </div>
+    <div id="video-modal" class="modal hidden">
+        <div class="video-container">
+            <video id="birthday-video" controls>
+                <source src="2.mp4" type="video/mp4">
+                <source src="video_ucapan.webm" type="video/webm">
+                <source src="video_ucapan.ogg" type="video/ogg">
+                Browsermu tidak mendukung tag video.
+            </video>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
